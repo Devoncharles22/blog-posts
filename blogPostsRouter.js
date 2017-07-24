@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 //`BlogPosts.create( )`.  It should return a JSON obj. representing new post. 
 //the endpoint should send a 400 error if the post does not contaitn required 'title', 'content', 
 //and 'author'
+// http://localhost:8080/blog-posts/
 router.post('/', jsonParser, (req, res) => {
 	const requiredFields = ['title', 'content', 'author'];
 	for (let i =0; i <requiredFields.length; i++) {
@@ -43,6 +44,8 @@ router.post('/', jsonParser, (req, res) => {
 //adding enpoint for PUT req's to update blog posts. it should call `BlogPosts.update( )`
 //return the updated post, ensure post matched the id of the path variable, and 
 //the required fields:  `id`, `title`, `content`, `author`, `publishDate` are in request body
+// http://localhost:8080/blog-posts/:id
+// http://localhost:8080/blog-posts/22
 router.put('/:id', jsonParser, (req, res) => {
 	const requiredFields = [
 	'id', 'title', 'content', 'publishDate'];
